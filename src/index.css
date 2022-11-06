@@ -1,5 +1,60 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  margin: 0;
-  font-family: 'Outfit', sans-serif
-    sans-serif;
+    font-family: Menlo;
+    --webkit-font-smoothing: antialiased;
+    --moz-osx-font-smoothing: grayscale;
+}
+
+p {
+    font-size: 1.6rem;
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+.app {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: rgb(0, 0, 0, 0.4);
+    color: #fff;
+}
+
+.app:before {
+    content: '';
+    background: url('./assets/pexels-pixabay-33834.jpg') no-repeat center center/cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.container {
+    max-width: 700px;
+    height: 700px;
+    margin: auto;
+    padding: 0 1rem;
+    position: relative;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.app .top {
+    width: 100%;
+    margin: 1rem auto;
+}
+
+.app .description {
+    ;
 }
