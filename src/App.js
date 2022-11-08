@@ -1,35 +1,91 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 function App() {
-  
-    // const url = 'https://api.openweathermap.org/data/2.5/weather?q=dallas&appid=8e86d819c113a26118df4780eb390424'
+    const [data,setData] = useState({})
+    const [location, setLocation] = useState('')
 
-  return (
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=8e86d819c113a26118df4780eb390424`
+
+    const searchLocation = (event) => {
+      if (event.key === 'Enter') {
+        axios.get(url).then((response) => {
+          setData(response.data)
+          console.log(response.data)
+        })
+      }
+    }
+
+    return (
       <div className="app">
+
+        <div className="search">
+          <input
+          value={location}
+          onChange={event => setLocation(event.target.value)}
+          onKeyPress={searchLocation}
+          placeholder='Enter Location'
+          type="text"/>
+        </div>
         <div className="container">
           <div className="top">
             <div className="location">
-              <p>Dallas</p>
+                      <p>{data.name}</p>
             </div>
             <div className="temp">
-              <h1>60F</h1>
+                    {data.main ? <h1>{data.main.temp}&deg;F</h1> : null}
             </div>
-            <div className="decription">
-              <p>Clouds</p>
-            </div>
+          <div className="description">
+                    {data.weather ?
+                        <div className="weather">
+                            {data.weather[0].main === "Clear" &&
+                                <div className="Clear">
+                                </div>
+                            }
+                            {data.weather[0].main === "Clouds" &&
+                                <div className="Clouds">
+                                </div>
+                            }
+                            {data.weather[0].main === "Rain" &&
+                                <div className="Rain">
+                                </div>
+                            }
+                            {data.weather[0].main === "Snow" &&
+                                <div className="Snow">
+                                </div>
+                            }
+                            {data.weather[0].main === "Mist" &&
+                                <div className="Mist">
+                                </div>
+                            }
+                        </div>
+                    : null}
+                    {data.weather ? <p>{data.weather[0].main}</p> : null}
           </div>
-          <div className="bottom">
-            <div className="feels">
-              <p>65F</p>
-            </div>
-            <div className="humidity">
-              <p>20%</p>
-            </div>
-            <div className="wind">
-              <p>12 MPH</p>
-            </div>
           </div>
+
+           {data.name !== undefined &&
+                <div className="bottom">
+                    <div className="feels">
+                        {data.main ? <p className='bold'>{data.main.feels_like}&deg;F</p> : null}
+                        <p>Feels Like</p>
+                    </div>
+                    <div className="humidity">
+                        {data.main ? <p className='bold'>{data.main.humidity}%</p> : null}
+                        <p>Humidity</p>
+                    </div>
+                    <div className="pressure">
+                        {data.main ? <p className='bold'>{data.main.pressure} hPa</p> : null}
+                        <p>Pressure</p>
+                    </div>
+
+                    <div className="wind">
+                        {data.wind ? <p className='bold'>{data.wind.speed} m/s</p> : null}
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+           }
+
         </div>
       </div>
   );

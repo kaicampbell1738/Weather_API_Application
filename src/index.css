@@ -12,24 +12,24 @@ body {
 }
 
 p {
-    font-size: 2rem;
+    font-size: 1.9rem;
 }
 
 h1 {
-    font-size: 6rem;
+    font-size: 5.5rem;
 }
 
 .app {
     width: 100%;
     height: 100vh;
     position: relative;
-    background-color: rgb(0, 0, 0, 0.3);
+    background-color: rgb(0, 0, 0, 0.4);
     color: white;
 }
 
 .app:before {
     content: '';
-    background: url('./assets/pexels-pixabay-33834.jpg') no-repeat center center/cover;
+    background: url('./assets/blue.png') center center/cover;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -38,9 +38,27 @@ h1 {
     z-index: -1;
 }
 
+.app .search {
+    text-align: center;
+    padding: 1rem;
+}
+
+.app input {
+    padding: .7rem 1.5rem;
+    font-size: 1.5rem;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0);
+    background: rgba(255, 255, 255, 0.1);
+    color: #f8f8f8;
+}
+
+::placeholder {
+    color: #f8f8f8;
+}
+
 .container {
-    max-width: 700px;
-    height: 700px;
+    max-width: 1000px;
+    height: 750px;
     margin: auto;
     padding: 0 1rem;
     position: relative;
@@ -50,11 +68,73 @@ h1 {
     justify-content: space-between;
 }
 
+.app .Clear {
+    background: url('./assets/clear.jpg') no-repeat center center/cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.app .Clouds {
+    background: url('./assets/cloudy.jpg') no-repeat center center/cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.app .Rain {
+    background: url('./assets/rain.jpg') no-repeat center center/cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.app .Snow {
+    background: url('./assets/snow.jpg') no-repeat center center/cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.app .Mist {
+    background: url('./assets/mist.jpg') no-repeat center center/cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
 .app .top {
     width: 100%;
     margin: 1rem auto;
+    text-align: left;
 }
 
-.app .description {
-    ;
+.app .bottom {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 100%;
+    margin: 1rem auto;
+    padding-left: 1rem;
+    border-radius: 0px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.bold {
+    font-weight: 800;
 }
